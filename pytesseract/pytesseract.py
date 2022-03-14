@@ -78,11 +78,11 @@ class PandasNotSupported(EnvironmentError):
         super().__init__('Missing pandas package')
 
 
-class TesseractError(RuntimeError):
-    def __init__(self, status, message):
-        self.status = status
-        self.message = message
-        self.args = (status, message)
+# class TesseractError(RuntimeError):
+#     def __init__(self, status, message):
+#         self.status = status
+#         self.message = message
+#         self.args = (status, message)
 
 
 class TesseractNotFoundError(EnvironmentError):
@@ -259,9 +259,9 @@ def run_tesseract(
         else:
             raise TesseractNotFoundError()
 
-    with timeout_manager(proc, timeout) as error_string:
-        if proc.returncode:
-            raise TesseractError(proc.returncode, get_errors(error_string))
+#     with timeout_manager(proc, timeout) as error_string:
+#         if proc.returncode:
+#             raise TesseractError(proc.returncode, get_errors(error_string))
 
 
 def run_and_get_output(
